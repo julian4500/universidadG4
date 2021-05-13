@@ -13,19 +13,19 @@ public class Alumno {
     public Alumno() {
     }
 
-    public Alumno(int idAlumno, String nombre, LocalDate fechNac, int legajo, boolean estado) {
+    public Alumno(int idAlumno,int legajo, String nombre, LocalDate fechNac, boolean estado) {
         this.idAlumno = idAlumno;
+        this.legajo = legajo;
         this.nombre = nombre;
         this.fechNac = fechNac;
-        this.legajo = legajo;
         this.estado = estado;
     }
 
-    public Alumno(String nombre, String apellido, LocalDate fechNac, int legajo, boolean estado) {
+    public Alumno(int legajo,String nombre, String apellido, LocalDate fechNac, boolean estado) {
+         this.legajo = legajo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechNac = fechNac;
-        this.legajo = legajo;
         this.estado = estado;
     }
     
@@ -66,7 +66,7 @@ public class Alumno {
         this.apellido = apellido;
     }
 
-    public boolean isEstado() {
+    public boolean getEstado() {
         return estado;
     }
 
@@ -76,6 +76,9 @@ public class Alumno {
 
     public LocalDate getFechaNac() {
         return fechNac;
+    }
+    public String toString(){
+        return idAlumno+" "+fechNac+""+estado;
     }
 
     
