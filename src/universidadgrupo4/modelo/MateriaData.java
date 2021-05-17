@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -26,7 +27,7 @@ public class MateriaData {
         try{
             con = conexion.getConexion();
         }catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null, ex);
+           JOptionPane.showMessageDialog(null,"error de conexion");
         }
     }
      public void desactivarMateria(int id){
@@ -39,7 +40,7 @@ public class MateriaData {
             ps.executeUpdate();
             ps.close();
         }catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
+           JOptionPane.showMessageDialog(null,"error de conexion");
         }
     }
      public void guardarMateria(Materia materia){
@@ -58,7 +59,7 @@ public class MateriaData {
             
             ps.close();
         }catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
+           JOptionPane.showMessageDialog(null,"error de conexion");
         } 
      }
       public void actualizarMateria(Materia materia){
@@ -73,13 +74,14 @@ public class MateriaData {
             
             ps.close();
         }catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
+            JOptionPane.showMessageDialog(null,"error de conexion");
         }
     }
-      public List<Materia> buscarMateria(int id){
-           try{
-                ArrayList<Materia> materias= new ArrayList<>();
-                Materia materia;
+      public List <Materia> buscarMateria(int id){
+           Materia materia; 
+            ArrayList<Materia> materias = new ArrayList<>();
+            
+          try{ 
             String sql="SELECT * FROM  materia ";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
@@ -104,6 +106,5 @@ public class MateriaData {
         }
          return materias; 
     }
-      }
-    
+          
 }

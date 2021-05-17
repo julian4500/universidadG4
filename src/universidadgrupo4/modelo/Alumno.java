@@ -21,7 +21,7 @@ public class Alumno {
         this.estado = estado;
     }
 
-    public Alumno(int legajo,String nombre, String apellido, LocalDate fechNac, boolean estado) {
+    public Alumno(int legajo,  String nombre, String apellido, LocalDate fechNac, boolean estado) {
          this.legajo = legajo;
         this.nombre = nombre;
         this.apellido = apellido;

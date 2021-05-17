@@ -9,8 +9,9 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sun.util.logging.PlatformLogger;
-import java.time.*;
+import javax.swing.JOptionPane;
+
+
 
 /**
  *
@@ -22,7 +23,7 @@ public class AlumnoData {
         try{
             con = conexion.getConexion();
         }catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null, ex);
+           JOptionPane.showMessageDialog(null,"error de conexion");
         }
     }
     
@@ -45,7 +46,7 @@ public class AlumnoData {
             }
             ps.close();
         }catch(SQLException ex){
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
+           JOptionPane.showMessageDialog(null,"error de conexion");
         }
         return alumnos;
     }
@@ -60,11 +61,11 @@ public class AlumnoData {
             ps.executeUpdate();
             ps.close();
         }catch (SQLException ex) {
-            Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
+            JOptionPane.showMessageDialog(null,"error de conexion");
         }
     }
     
-    public void actualizarAlumno(Alumno alumno){
+   /* public void actualizarAlumno(Alumno alumno){
         try{
             String sql="UPDATE  alumno SET legajo=?, nombre=?, apellido=?, estado=?, fechNac=? WHERE idAlumno=?";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -78,9 +79,9 @@ public class AlumnoData {
         }catch (SQLException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
         }
-    }
+    }*/
     
-    public void guardarAlumno(Alumno alumno){
+    /*public void guardarAlumno(Alumno alumno){
          try{
             String sql="INSERT INTO alumno (legajo, nombre, apellido, estado, fechNac) VALUES (?,?,?,?,?)";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -98,7 +99,7 @@ public class AlumnoData {
         }catch (SQLException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
         }    
-    }
+    }*/
     
     
     
