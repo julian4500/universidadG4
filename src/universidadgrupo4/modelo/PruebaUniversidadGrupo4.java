@@ -7,6 +7,7 @@ package universidadgrupo4.modelo;
 
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
+import java.sql.*;
 
 /**
  *
@@ -20,14 +21,16 @@ public class PruebaUniversidadGrupo4 {
     public static void main(String[] args) {
         Conexion conexion = null;
         try{
-          conexion = new Conexion("jdbc:mysql://localhost/universidadgrupo4","root","");
+          conexion = new Conexion("jdbc:mysql://localhost/universidad_g4", "root", "");
         } catch (ClassNotFoundException ex){
             JOptionPane.showMessageDialog(null, "Error de driver");
         }
-        LocalDate fecha=LocalDate.of(2020, 2, 12);
-        Alumno a=new Alumno(212114,"Juan","Gimenez",fecha,true);
+        LocalDate fecha=LocalDate.of(2020,2,12);
+        Alumno a= new Alumno(212114,"Juan","Gimenez",fecha,true);
         AlumnoData aD=new AlumnoData(conexion);
-        aD.borrarAlumno(2);
+        aD.guardarAlumno(a);
+        //aD.obtenerAlumno();
+        //aD.guardarAlumno(a);
         
     }
     

@@ -10,6 +10,8 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import java.time.LocalDate;
+import java.sql.Date;
 
 
 
@@ -65,25 +67,25 @@ public class AlumnoData {
         }
     }
     
-   /* public void actualizarAlumno(Alumno alumno){
+    public void actualizarAlumno(Alumno alumno){
         try{
             String sql="UPDATE  alumno SET legajo=?, nombre=?, apellido=?, estado=?, fechNac=? WHERE idAlumno=?";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, alumno.getLegajo());
-            ps.setString(1, alumno.getNombre());
-            ps.setDate(2, Date.valueOf(alumno.getFechaNac()));
-            ps.setBoolean(3, alumno.getEstado());
+            ps.setString(2, alumno.getNombre());
+            ps.setDate(3, Date.valueOf(alumno.getFechaNac()));
+            ps.setBoolean(4, alumno.getEstado());
             ps.executeUpdate();
             
             ps.close();
         }catch (SQLException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
         }
-    }*/
+    }
     
-    /*public void guardarAlumno(Alumno alumno){
+    public void guardarAlumno(Alumno alumno){
          try{
-            String sql="INSERT INTO alumno (legajo, nombre, apellido, estado, fechNac) VALUES (?,?,?,?,?)";
+            String sql="INSERT INTO alumno (legajoDni, nombre, apellido, estado, fechNac) VALUES (?,?,?,?,?)";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, alumno.getLegajo());
             ps.setString(1, alumno.getNombre());
@@ -99,7 +101,7 @@ public class AlumnoData {
         }catch (SQLException ex) {
             Logger.getLogger(AlumnoData.class.getName()).log(Level.SEVERE,null,ex);
         }    
-    }*/
+    }
     
     
     

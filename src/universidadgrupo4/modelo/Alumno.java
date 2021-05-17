@@ -1,4 +1,5 @@
 package universidadgrupo4.modelo;
+
 import java.time.LocalDate;
 
 public class Alumno {
